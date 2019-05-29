@@ -1,5 +1,6 @@
 package com.example.superheros.Controllers;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     //API constant -
     private static final String BASE_URL = "https://heroapps.co.il/employee-tests/android/androidexam.json";
     public static final String SAVED_HERO_LIST = "heroesList";
+    public static final String PASSED_HERO_IMAGE = "passedHeroImage";
     // Recyclerview variables -
     private RecyclerView heroesRecylerView;
     private ArrayList<Hero> heroesArrayList;
@@ -113,9 +115,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onListImageItemClicked(int position) {
-                HeroImageFragment fragment = new HeroImageFragment();
-                fragment.setSelectedHero(heroesArrayList.get(position));
-                fragment.show(getSupportFragmentManager(),"Hero Fragment");
+                Hero selectedHero = heroesArrayList.get(position);
+                Intent intent = new Intent(MainActivity.this, Activity_Fullscreen_Hero.class);
+                intent.putExtra(PASSED_HERO_IMAGE, gson.toJson(selectedHero));
+                startActivity(intent);
             }
         });
         heroesRecylerView.setAdapter(heroesAdapter);
