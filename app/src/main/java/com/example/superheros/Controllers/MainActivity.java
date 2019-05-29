@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     //API constant -
     private static final String BASE_URL = "https://heroapps.co.il/employee-tests/android/androidexam.json";
+    public static final String SAVED_HERO_LIST = "heroesList";
     // Recyclerview variables -
     private RecyclerView heroesRecylerView;
     private ArrayList<Hero> heroesArrayList;
@@ -32,22 +33,41 @@ public class MainActivity extends AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private ImageView toolbarImageView;
     //Persistence variables -
-    private Hero selectedFavoriteHero;
     private SharedPreferences sharedPreferences;
+    private Gson gson;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        InitNetworking();
+        initLocalData();
+
     }
 
-    private void InitNetworking() {
+    private void initLocalData() {
+        try {
+            heroesArrayList = loadFromLocal();
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        if (heroesArrayList != null && heroesArrayList.size() > 0){
+            initViews();
+            for (int i = 0; i < heroesArrayList.size(); i++) {
+                if (heroesArrayList.get(i).isFavorite()){
+                    changeFavoriteHero(i, true);
+                }
+            }
+        } else {
+            initNetworking();
+        }
+    }
+
+    private void initNetworking() {
         HttpRequest httpRequest = new HttpRequest(this, BASE_URL, new HttpRequest.OnHttpCompleteListener() {
             @Override
             public void onComplete(String response) {
-                dataToModel(response);
+                dataToModel(response, false);
                 initViews();
             }
 
@@ -70,47 +90,70 @@ public class MainActivity extends AppCompatActivity {
         heroesAdapter = new HeroesAdapter(heroesArrayList, new HeroesAdapter.OnHeroListClickListener() {
             @Override
             public void onListItemClicked(int position) {
-                changeFavoriteHero(position);
+                changeFavoriteHero(position, false);
             }
         });
         heroesRecylerView.setAdapter(heroesAdapter);
 
     }
 
-    private void changeFavoriteHero(int position) {
-        Hero pressedHeroRow = heroesArrayList.get(position);
-        selectedFavoriteHero = pressedHeroRow;
-        Picasso.get().load(pressedHeroRow.image)
+    private void changeFavoriteHero(int position, boolean cameFromLocalStorage) {
+        Hero currentHeroChosen = heroesArrayList.get(position);
+        Picasso.get().load(currentHeroChosen.image)
                 .fit()
                 .centerCrop()
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_foreground)
                 .into(toolbarImageView);
-        collapsingToolbarLayout.setTitle(pressedHeroRow.title);
-        pressedHeroRow.setFavorite(!pressedHeroRow.isFavorite());
+        collapsingToolbarLayout.setTitle(currentHeroChosen.title);
+        if (!cameFromLocalStorage) {
+            currentHeroChosen.setFavorite(!currentHeroChosen.isFavorite());
+        } else {
+            currentHeroChosen.setFavorite(true);
+        }
         for (int i = 0; i < heroesArrayList.size(); i++) {
             if (i == position) continue;
             heroesArrayList.get(i).setFavorite(false);
         }
+        saveToLocal(heroesArrayList);
         heroesAdapter.notifyDataSetChanged();
     }
+
+
+    private ArrayList<Hero> dataToModel(String json, boolean isLocalInfo) {
+        Gson gson = new Gson();
+        Hero[] heroesList = gson.fromJson(json, Hero[].class);
+        heroesArrayList = new ArrayList<>(Arrays.asList(heroesList));
+        if (!isLocalInfo) {
+            saveToLocal(heroesArrayList);
+        }
+        return heroesArrayList;
+    }
+
+
+    //Shared preferences load & save methods -
 
     private void saveToLocal(ArrayList<Hero> heroesArrayList) {
         sharedPreferences = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
-        Gson gson = new Gson();
+        gson = new Gson();
         String heroesList = gson.toJson(heroesArrayList);
         Log.d("heroArrayList", heroesList);
-        prefsEditor.putString("heroesList", heroesList);
-        prefsEditor.apply();
-
+        prefsEditor.putString(SAVED_HERO_LIST, heroesList);
+        prefsEditor.commit();
     }
 
+    private ArrayList<Hero> loadFromLocal(){
+        sharedPreferences = getPreferences(MODE_PRIVATE);
+        try {
+            String fetchedHeroesJson = sharedPreferences.getString(SAVED_HERO_LIST, null);
+            Log.d("retrivedJSON", fetchedHeroesJson);
+            ArrayList<Hero> heroArrayList = dataToModel(fetchedHeroesJson, true);
+            return heroArrayList;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
 
-    private void dataToModel(String json) {
-        Gson gson = new Gson();
-        Hero[] heroesList = gson.fromJson(json, Hero[].class);
-        heroesArrayList = new ArrayList<>(Arrays.asList(heroesList));
-        saveToLocal(heroesArrayList);
     }
 }
