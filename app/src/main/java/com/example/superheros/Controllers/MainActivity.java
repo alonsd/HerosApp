@@ -133,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
             if (i == position){
                 Collections.swap(heroesArrayList, i, 0);
                 // TODO - animate the movement of the layout
+                heroesAdapter.notifyItemMoved(position, 0);
+                heroesRecylerView.smoothScrollToPosition(0);
                 continue;
             }
             heroesArrayList.get(i).setFavorite(false);

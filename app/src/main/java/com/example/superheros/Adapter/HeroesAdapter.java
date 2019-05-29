@@ -93,5 +93,6 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
 
     public interface OnHeroListClickListener {
         void onListItemClicked(int position);
+        void onListImageItemClicked(int position);
     }
 }
