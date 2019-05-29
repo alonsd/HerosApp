@@ -30,4 +30,16 @@ public class Hero {
                 + "title: " + title + "\n"
                 + "abilities: " + Arrays.toString(abilities);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) return false;
+        if (other == this) return true;
+        if (!(other instanceof Hero)) return false;
+        Hero otherHero = (Hero)other;
+        if (otherHero.title.equals(this.title)
+         && otherHero.image.equals(this.image)
+         && Arrays.equals(otherHero.abilities, this.abilities)) return true;
+        return false;
+    }
 }

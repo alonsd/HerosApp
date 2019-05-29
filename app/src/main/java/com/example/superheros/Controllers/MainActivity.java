@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
         InitNetworking();
     }
 
@@ -69,21 +69,29 @@ public class MainActivity extends AppCompatActivity {
         heroesAdapter = new HeroesAdapter(heroesArrayList, new HeroesAdapter.OnHeroListClickListener() {
             @Override
             public void onListItemClicked(int position) {
-                Hero selectedHero = heroesArrayList.get(position);
-                selectedFavoriteHero = selectedHero;
-                Picasso.get().load(selectedHero.image)
-                        .fit()
-                        .centerCrop()
-                        .placeholder(R.drawable.ic_launcher_background)
-                        .error(R.drawable.ic_launcher_foreground)
-                        .into(toolbarImageView);
-                collapsingToolbarLayout.setTitle(selectedHero.title);
-                selectedHero.setFavorite(!selectedHero.isFavorite());
-                heroesAdapter.notifyItemChanged(position);
+                changeFavoriteHero(position);
             }
         });
         heroesRecylerView.setAdapter(heroesAdapter);
 
+    }
+
+    private void changeFavoriteHero(int position) {
+        Hero pressedHeroRow = heroesArrayList.get(position);
+        selectedFavoriteHero = pressedHeroRow;
+        Picasso.get().load(pressedHeroRow.image)
+                .fit()
+                .centerCrop()
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_foreground)
+                .into(toolbarImageView);
+        collapsingToolbarLayout.setTitle(pressedHeroRow.title);
+        pressedHeroRow.setFavorite(!pressedHeroRow.isFavorite());
+        for (int i = 0; i < heroesArrayList.size(); i++) {
+            if (i == position) continue;
+            heroesArrayList.get(i).setFavorite(false);
+        }
+        heroesAdapter.notifyDataSetChanged();
     }
 
 

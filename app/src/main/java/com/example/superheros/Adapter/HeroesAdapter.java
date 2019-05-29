@@ -24,14 +24,6 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
         this.heroListClickListener = heroListClickListener;
     }
 
-    private View.OnClickListener listener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-
-        }
-    };
-
-
     @NonNull
     @Override
     public HeroesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
