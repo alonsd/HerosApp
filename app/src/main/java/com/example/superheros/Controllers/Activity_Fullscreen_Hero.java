@@ -35,6 +35,7 @@ public class Activity_Fullscreen_Hero extends AppCompatActivity {
             Picasso.get()
                     .load(hero.image)
                     .error(R.drawable.ic_launcher_foreground)
+                    //.resize(zoomageView.getMaxWidth(), zoomageView.getMaxHeight())
                     .into(zoomageView);
             heroTitle.setText(hero.title);
         }

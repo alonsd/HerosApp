@@ -48,7 +48,7 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
         Picasso.get()
                 .load(currentHero.image)
                 .resize(500, 500)
-                .placeholder(R.drawable.ic_launcher_background)
+                //.placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_foreground)
                 .into(holder.heroesImage);
         if (!currentHero.isFavorite()){

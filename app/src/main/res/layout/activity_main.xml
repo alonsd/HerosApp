@@ -22,7 +22,7 @@
             android:id="@+id/collapsingHeroToolbarLayout"
             app:contentScrim="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="Hero Title">
+            app:title="Select A Hero">
 
             <ImageView
                 android:layout_width="match_parent"
