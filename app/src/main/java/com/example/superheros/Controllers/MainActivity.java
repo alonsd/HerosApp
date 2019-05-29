@@ -1,5 +1,6 @@
 package com.example.superheros.Controllers;
 
+import android.content.SharedPreferences;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView toolbarImageView;
     //Persistence variables -
     private Hero selectedFavoriteHero;
-
+    private SharedPreferences sharedPreferences;
 
 
     @Override
@@ -94,10 +95,22 @@ public class MainActivity extends AppCompatActivity {
         heroesAdapter.notifyDataSetChanged();
     }
 
+    private void saveToLocal(ArrayList<Hero> heroesArrayList) {
+        sharedPreferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String heroesList = gson.toJson(heroesArrayList);
+        Log.d("heroArrayList", heroesList);
+        prefsEditor.putString("heroesList", heroesList);
+        prefsEditor.apply();
 
-    private void dataToModel(String json){
+    }
+
+
+    private void dataToModel(String json) {
         Gson gson = new Gson();
         Hero[] heroesList = gson.fromJson(json, Hero[].class);
         heroesArrayList = new ArrayList<>(Arrays.asList(heroesList));
+        saveToLocal(heroesArrayList);
     }
 }
