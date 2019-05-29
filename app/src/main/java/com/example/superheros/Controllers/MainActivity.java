@@ -18,6 +18,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.function.ToDoubleBiFunction;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     // Recyclerview variables -
     private RecyclerView heroesRecylerView;
     private ArrayList<Hero> heroesArrayList;
-    private RecyclerView.LayoutManager layoutManager;
+    private LinearLayoutManager layoutManager;
     private HeroesAdapter heroesAdapter;
     //Toolbar variables -
     private CollapsingToolbarLayout collapsingToolbarLayout;
@@ -48,20 +50,24 @@ public class MainActivity extends AppCompatActivity {
     private void initLocalData() {
         try {
             heroesArrayList = loadFromLocal();
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
-        if (heroesArrayList != null && heroesArrayList.size() > 0){
-            initViews();
+        if (heroesArrayList != null && heroesArrayList.size() > 0) {
             for (int i = 0; i < heroesArrayList.size(); i++) {
-                if (heroesArrayList.get(i).isFavorite()){
-                    changeFavoriteHero(i, true);
+                Hero currentHero = heroesArrayList.get(i);
+                if (currentHero.isFavorite()) {
+                    Collections.swap(heroesArrayList, i, 0);
+                    initViews();
+                    changeFavoriteHero(0, true);
                 }
             }
         } else {
             initNetworking();
         }
     }
+
+    //Data fetching & parsing
 
     private void initNetworking() {
         HttpRequest httpRequest = new HttpRequest(this, BASE_URL, new HttpRequest.OnHttpCompleteListener() {
@@ -78,6 +84,18 @@ public class MainActivity extends AppCompatActivity {
         });
         httpRequest.request();
     }
+
+    private ArrayList<Hero> dataToModel(String json, boolean isLocalInfo) {
+        Gson gson = new Gson();
+        Hero[] heroesList = gson.fromJson(json, Hero[].class);
+        heroesArrayList = new ArrayList<>(Arrays.asList(heroesList));
+        if (!isLocalInfo) {
+            saveToLocal(heroesArrayList);
+        }
+        return heroesArrayList;
+    }
+
+    //UI changing -
 
 
     private void initViews() {
@@ -112,7 +130,11 @@ public class MainActivity extends AppCompatActivity {
             currentHeroChosen.setFavorite(true);
         }
         for (int i = 0; i < heroesArrayList.size(); i++) {
-            if (i == position) continue;
+            if (i == position){
+                Collections.swap(heroesArrayList, i, 0);
+                // TODO - animate the movement of the layout
+                continue;
+            }
             heroesArrayList.get(i).setFavorite(false);
         }
         saveToLocal(heroesArrayList);
@@ -120,15 +142,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private ArrayList<Hero> dataToModel(String json, boolean isLocalInfo) {
-        Gson gson = new Gson();
-        Hero[] heroesList = gson.fromJson(json, Hero[].class);
-        heroesArrayList = new ArrayList<>(Arrays.asList(heroesList));
-        if (!isLocalInfo) {
-            saveToLocal(heroesArrayList);
-        }
-        return heroesArrayList;
-    }
+
 
 
     //Shared preferences load & save methods -
@@ -143,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         prefsEditor.commit();
     }
 
-    private ArrayList<Hero> loadFromLocal(){
+    private ArrayList<Hero> loadFromLocal() {
         sharedPreferences = getPreferences(MODE_PRIVATE);
         try {
             String fetchedHeroesJson = sharedPreferences.getString(SAVED_HERO_LIST, null);
