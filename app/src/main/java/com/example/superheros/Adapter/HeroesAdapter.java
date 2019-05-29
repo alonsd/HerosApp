@@ -88,6 +88,13 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
                     heroListClickListener.onListItemClicked(getAdapterPosition());
                 }
             });
+            heroesImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (heroListClickListener == null) return;
+                    heroListClickListener.onListImageItemClicked(getAdapterPosition());
+                }
+            });
         }
     }
 

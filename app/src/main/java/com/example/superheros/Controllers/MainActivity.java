@@ -110,6 +110,13 @@ public class MainActivity extends AppCompatActivity {
             public void onListItemClicked(int position) {
                 changeFavoriteHero(position, false);
             }
+
+            @Override
+            public void onListImageItemClicked(int position) {
+                HeroImageFragment fragment = new HeroImageFragment();
+                fragment.setSelectedHero(heroesArrayList.get(position));
+                fragment.show(getSupportFragmentManager(),"Hero Fragment");
+            }
         });
         heroesRecylerView.setAdapter(heroesAdapter);
 
