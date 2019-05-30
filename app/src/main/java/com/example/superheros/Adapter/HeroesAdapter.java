@@ -6,10 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.superheros.Model.Hero;
 import com.example.superheros.R;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -38,7 +40,7 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HeroesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HeroesViewHolder holder, int position) {
 
         final Hero currentHero = heroList.get(position);
         String str = String.join(",", currentHero.abilities);
@@ -50,7 +52,17 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
                 .resize(500, 500)
                 //.placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_foreground)
-                .into(holder.heroesImage);
+                .into(holder.heroesImage, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        holder.progressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
         if (!currentHero.isFavorite()){
             Picasso.get()
                     .load(R.drawable.empty_heart)
@@ -73,6 +85,7 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
         TextView heroTitle;
         TextView heroAbilities;
         ImageView heartImageview;
+        ProgressBar progressBar;
 
 
         public HeroesViewHolder(@NonNull View itemView) {
@@ -81,6 +94,8 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
             heroTitle = itemView.findViewById(R.id.heroTitle);
             heroAbilities = itemView.findViewById(R.id.heroAbilities);
             heartImageview = itemView.findViewById(R.id.heartImageView);
+            progressBar = itemView.findViewById(R.id.adapterProgressBar);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -8,13 +8,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.example.superheros.Adapter.HeroesAdapter;
 import com.example.superheros.Model.Hero;
 import com.example.superheros.Networking.HttpRequest;
 import com.example.superheros.R;
 import com.google.gson.Gson;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     //Toolbar variables -
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private ImageView toolbarImageView;
+    private ProgressBar progressBar;
     //Persistence variables -
     private SharedPreferences sharedPreferences;
     private Gson gson;
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         heroesRecylerView = findViewById(R.id.herosRecyclerView);
         collapsingToolbarLayout = findViewById(R.id.collapsingHeroToolbarLayout);
         toolbarImageView = findViewById(R.id.toolbarImageview);
+        progressBar = findViewById(R.id.activityMainProgressBar);
         heroesRecylerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         heroesRecylerView.setLayoutManager(layoutManager);
@@ -130,9 +135,19 @@ public class MainActivity extends AppCompatActivity {
         Picasso.get().load(currentHeroChosen.image)
                 .fit()
                 .centerCrop()
-                .placeholder(R.drawable.ic_launcher_background)
+                //.placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_foreground)
-                .into(toolbarImageView);
+                .into(toolbarImageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        progressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
         collapsingToolbarLayout.setTitle(currentHeroChosen.title);
         if (!cameFromLocalStorage) {
             currentHeroChosen.setFavorite(!currentHeroChosen.isFavorite());
@@ -142,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < heroesArrayList.size(); i++) {
             if (i == position){
                 Collections.swap(heroesArrayList, i, 0);
-                // TODO - animate the movement of the layout
                 heroesAdapter.notifyItemMoved(position, 0);
                 heroesRecylerView.smoothScrollToPosition(0);
                 continue;
