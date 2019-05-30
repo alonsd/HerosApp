@@ -5,6 +5,7 @@
 ## Parsing JSON data to list and saving them to Android local Persistency.
 
 This app demonstrates JSON parsing from API of super-heroes into an Android Recyclerview.The data is immediately stored into Shared Prefrences persistency and can be viewed without internet.
+When pressing on an image, a new activity will open that features an ImageView with pinch-to-zoom capability. 
 
 Built using MVC architecture.
 
