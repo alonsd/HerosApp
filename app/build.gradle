@@ -35,5 +35,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.jsibbold:zoomage:1.2.0'
+    implementation 'com.sdsmdg.tastytoast:tastytoast:0.1.1'
 
 }

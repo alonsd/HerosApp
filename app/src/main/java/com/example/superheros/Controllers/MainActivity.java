@@ -17,13 +17,14 @@ import com.example.superheros.Model.Hero;
 import com.example.superheros.Networking.HttpRequest;
 import com.example.superheros.R;
 import com.google.gson.Gson;
+import com.sdsmdg.tastytoast.TastyToast;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.function.ToDoubleBiFunction;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Data fetching from local, if exists -
+
     private void initLocalData() {
         try {
             heroesArrayList = loadFromLocal();
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 Hero currentHero = heroesArrayList.get(i);
                 if (currentHero.isFavorite()) {
                     Collections.swap(heroesArrayList, i, 0);
-                    initViews();
+                    initViews(true);
                     changeFavoriteHero(0, true);
                 }
             }
@@ -73,14 +76,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Data fetching & parsing
+    //Data fetching & parsing from network
 
     private void initNetworking() {
         HttpRequest httpRequest = new HttpRequest(this, BASE_URL, new HttpRequest.OnHttpCompleteListener() {
             @Override
             public void onComplete(String response) {
                 dataToModel(response, false);
-                initViews();
+                initViews(false);
             }
 
             @Override
@@ -101,20 +104,29 @@ public class MainActivity extends AppCompatActivity {
         return heroesArrayList;
     }
 
-    //UI changing -
 
+    //Views initialization & Recyclerview methods -
 
-    private void initViews() {
+    private void initViews(boolean didComeFromLocalStorage) {
         heroesRecylerView = findViewById(R.id.herosRecyclerView);
         collapsingToolbarLayout = findViewById(R.id.collapsingHeroToolbarLayout);
         toolbarImageView = findViewById(R.id.toolbarImageview);
         progressBar = findViewById(R.id.activityMainProgressBar);
+        if (!didComeFromLocalStorage)
+            progressBar.setVisibility(View.GONE);
+        initRecyclerview();
+
+    }
+
+    private void initRecyclerview() {
         heroesRecylerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         heroesRecylerView.setLayoutManager(layoutManager);
         heroesAdapter = new HeroesAdapter(heroesArrayList, new HeroesAdapter.OnHeroListClickListener() {
             @Override
             public void onListItemClicked(int position) {
+                TastyToast.makeText(MainActivity.this,
+                        heroesArrayList.get(position).title + " Choosen!", TastyToast.LENGTH_SHORT, TastyToast.SUCCESS);
                 changeFavoriteHero(position, false);
             }
 
@@ -127,15 +139,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         heroesRecylerView.setAdapter(heroesAdapter);
-
     }
+
+    //Method that changes the favorite hero and saves to Shared Prefs
 
     private void changeFavoriteHero(int position, boolean cameFromLocalStorage) {
         Hero currentHeroChosen = heroesArrayList.get(position);
         Picasso.get().load(currentHeroChosen.image)
                 .fit()
                 .centerCrop()
-                //.placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_foreground)
                 .into(toolbarImageView, new Callback() {
                     @Override
@@ -155,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             currentHeroChosen.setFavorite(true);
         }
         for (int i = 0; i < heroesArrayList.size(); i++) {
-            if (i == position){
+            if (i == position) {
                 Collections.swap(heroesArrayList, i, 0);
                 heroesAdapter.notifyItemMoved(position, 0);
                 heroesRecylerView.smoothScrollToPosition(0);
@@ -166,9 +178,6 @@ public class MainActivity extends AppCompatActivity {
         saveToLocal(heroesArrayList);
         heroesAdapter.notifyDataSetChanged();
     }
-
-
-
 
 
     //Shared preferences load & save methods -
