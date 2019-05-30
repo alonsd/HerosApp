@@ -41,13 +41,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-
-        </android.support.constraint.ConstraintLayout>
-
         <TextView
             android:id="@+id/heroTitle"
             android:layout_width="200dp"
