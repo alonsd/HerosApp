@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@drawable/gradient_grey_background"
     android:fitsSystemWindows="true"
     tools:context=".Controllers.MainActivity">
 
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:textAlignment="center"
-            app:contentScrim="@color/colorPrimary"
+            app:contentScrim="@color/colorLightGrey"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:title="Select A Hero">
 
