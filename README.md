@@ -6,6 +6,10 @@
 
 This app demonstrates JSON parsing from API of super-heroes into an Android Recyclerview.The data is immediately stored into Shared Prefrences persistency and can be viewed without internet.
 
+When pressing on an image, a new activity will open that features an ImageView with pinch-to-zoom capability. 
+
+When pressing on the row itself, the new hero is selected as the favorite hero and is relocated in the top of the list and also shown in the Collapsing Toolbar. 
+
 Built using MVC architecture.
 
 ### Prerequisites
