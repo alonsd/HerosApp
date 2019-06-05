@@ -2,7 +2,7 @@
 
 <img src="https://github.com/alonsd/HeroApp/blob/master/HeroAppFront.jpeg" width="300"/>           <img src="https://github.com/alonsd/HeroApp/blob/master/HeroAppDetail.jpeg" width="300"/>
 
-## Parsing JSON data to list and saving them to Android local Persistency.
+## Parsing JSON data to list and saving them to Android local persistence.
 
 This app demonstrates JSON parsing from API of super-heroes into an Android Recyclerview.The data is immediately stored into Shared Prefrences persistency and can be viewed without internet.
 
