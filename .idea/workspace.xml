@@ -106,6 +106,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7c0dbeb-339c-4b6d-a5ea-e8adb06acf0d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -117,6 +118,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/superheros/Adapter/HeroesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/superheros/Adapter/HeroesAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/hero_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/hero_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,52 +149,41 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/gradient_grey_background.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Controllers/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2407">
-              <caret line="154" column="61" selection-start-line="154" selection-start-column="61" selection-end-line="154" selection-end-column="61" />
+            <state relative-caret-position="510">
+              <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5583#5584#0" expanded="true" />
-                <element signature="e#5667#5668#0" expanded="true" />
+                <element signature="method#onCreate#0;class#MainActivity#0" />
+                <element signature="method#initLocalData#0;class#MainActivity#0" />
+                <element signature="e#1972#2030#0" />
+                <element signature="e#2052#2097#0" />
+                <element signature="e#2165#2525#1" />
+                <element signature="e#2228#2515#1" />
+                <element signature="e#2335#2501#1" />
+                <element signature="e#2531#2572#1" />
+                <element signature="method#initNetworking#0;class#MainActivity#0" />
+                <element signature="class#2730:3072" />
+                <element signature="method#onComplete#0;class#2730:3072" />
+                <element signature="method#dataToModel#0;class#MainActivity#0" />
+                <element signature="e#3380#3433#1" />
+                <element signature="method#initViews#0;class#MainActivity#0" />
+                <element signature="method#initRecyclerview#0;class#MainActivity#0" />
+                <element signature="class#4255:5009" />
+                <element signature="method#onListItemClicked#0;class#4255:5009" />
+                <element signature="method#onListImageItemClicked#0;class#4255:5009" />
+                <element signature="method#changeFavoriteHero#0;class#MainActivity#0" />
+                <element signature="class#5496:5795" />
+                <element signature="method#onError#0;class#5496:5795" />
+                <element signature="e#5900#5987#1" />
+                <element signature="e#5993#6053#1" />
+                <element signature="e#6111#6428#1" />
+                <element signature="e#6144#6363#1" />
+                <element signature="method#saveToLocal#0;class#MainActivity#0" />
+                <element signature="method#loadFromLocal#0;class#MainActivity#0" />
+                <element signature="e#7106#7378#0" />
+                <element signature="e#7400#7445#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Adapter/HeroesAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -197,21 +191,63 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Controllers/Activity_Fullscreen_Hero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            <state relative-caret-position="357">
+              <caret line="30" column="74" selection-start-line="30" selection-start-column="74" selection-end-line="30" selection-end-column="74" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#984#1388#1" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/hero_row.xml">
-          <provider editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="70" selection-end-column="47" />
+              <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+              <folding>
+                <element signature="e#930#977#0" expanded="true" />
+                <element signature="e#1341#1388#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/hero_row.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="79" column="42" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
+              <folding>
+                <element signature="e#376#407#0" expanded="true" />
+                <element signature="e#430#457#0" expanded="true" />
+                <element signature="e#2186#2215#0" expanded="true" />
+                <element signature="e#2282#2315#0" expanded="true" />
+                <element signature="e#3107#3138#0" expanded="true" />
+                <element signature="e#3205#3237#0" expanded="true" />
+                <element signature="e#3522#3550#0" expanded="true" />
+                <element signature="e#3585#3613#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Adapter/HeroesAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="49" column="42" lean-forward="true" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -223,6 +259,7 @@
       <list>
         <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
@@ -249,19 +286,19 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-v24/login_background.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen_hero.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/superheros/Controllers/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/superheros/Adapter/HeroesAdapter.java" />
         <option value="$USER_HOME$/AndroidStudioProjects/SuperHeros/HeroApp/app/src/main/java/com/example/superheros/Controllers/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/superheros/Adapter/HeroesAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/hero_row.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="704" />
+    <option name="height" value="701" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -272,6 +309,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -295,7 +333,14 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="superheros" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Adapter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HeroApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="superheros" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HeroApp" type="1abcf292:AndroidViewProjectNode" />
@@ -323,12 +368,11 @@
         </subPane>
       </pane>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="RF8M21H47KA" />
+    <property name="device.picker.selection" value="Pixel_3_XL_API_28" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -441,11 +485,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="704" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="701" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24959612" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24959612" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -460,15 +503,15 @@
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32840723" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32520324" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.3251634" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32512316" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32840723" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.17043619" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.2463651" />
+      <window_info anchor="right" id="Preview" order="5" visible="true" weight="0.25040388" />
     </layout>
   </component>
   <component name="editorHistoryManager">
@@ -560,13 +603,6 @@
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="26" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/full_heart.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -576,18 +612,18 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/empty_heart copy.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_layout.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_fullscreen_hero.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$USER_HOME$/AndroidStudioProjects/SuperHeros/HeroApp/app/src/main/java/com/example/superheros/Controllers/MainActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+        <state relative-caret-position="51">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -598,56 +634,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Controllers/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Adapter/HeroesAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="510">
+          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+          <folding>
+            <element signature="method#onCreate#0;class#MainActivity#0" />
+            <element signature="method#initLocalData#0;class#MainActivity#0" />
+            <element signature="e#1972#2030#0" />
+            <element signature="e#2052#2097#0" />
+            <element signature="e#2165#2525#1" />
+            <element signature="e#2228#2515#1" />
+            <element signature="e#2335#2501#1" />
+            <element signature="e#2531#2572#1" />
+            <element signature="method#initNetworking#0;class#MainActivity#0" />
+            <element signature="class#2730:3072" />
+            <element signature="method#onComplete#0;class#2730:3072" />
+            <element signature="method#dataToModel#0;class#MainActivity#0" />
+            <element signature="e#3380#3433#1" />
+            <element signature="method#initViews#0;class#MainActivity#0" />
+            <element signature="method#initRecyclerview#0;class#MainActivity#0" />
+            <element signature="class#4255:5009" />
+            <element signature="method#onListItemClicked#0;class#4255:5009" />
+            <element signature="method#onListImageItemClicked#0;class#4255:5009" />
+            <element signature="method#changeFavoriteHero#0;class#MainActivity#0" />
+            <element signature="class#5496:5795" />
+            <element signature="method#onError#0;class#5496:5795" />
+            <element signature="e#5900#5987#1" />
+            <element signature="e#5993#6053#1" />
+            <element signature="e#6111#6428#1" />
+            <element signature="e#6144#6363#1" />
+            <element signature="method#saveToLocal#0;class#MainActivity#0" />
+            <element signature="method#loadFromLocal#0;class#MainActivity#0" />
+            <element signature="e#7106#7378#0" />
+            <element signature="e#7400#7445#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Controllers/Activity_Fullscreen_Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state relative-caret-position="357">
+          <caret line="30" column="74" selection-start-line="30" selection-start-column="74" selection-end-line="30" selection-end-column="74" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#984#1388#1" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AndroidStudioProjects/SuperHeros/HeroApp/app/src/main/java/com/example/superheros/Controllers/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="140" column="52" lean-forward="true" selection-start-line="140" selection-start-column="52" selection-end-line="140" selection-end-column="52" />
+        <state relative-caret-position="374">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Controllers/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/superheros/Adapter/HeroesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2407">
-          <caret line="154" column="61" selection-start-line="154" selection-start-column="61" selection-end-line="154" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5583#5584#0" expanded="true" />
-            <element signature="e#5667#5668#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="230">
+          <caret line="49" column="42" lean-forward="true" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/hero_row.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="70" selection-end-column="47" />
+        <state relative-caret-position="231">
+          <caret line="79" column="42" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
+          <folding>
+            <element signature="e#376#407#0" expanded="true" />
+            <element signature="e#430#457#0" expanded="true" />
+            <element signature="e#2186#2215#0" expanded="true" />
+            <element signature="e#2282#2315#0" expanded="true" />
+            <element signature="e#3107#3138#0" expanded="true" />
+            <element signature="e#3205#3237#0" expanded="true" />
+            <element signature="e#3522#3550#0" expanded="true" />
+            <element signature="e#3585#3613#0" expanded="true" />
+          </folding>
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+          <folding>
+            <element signature="e#930#977#0" expanded="true" />
+            <element signature="e#1341#1388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>

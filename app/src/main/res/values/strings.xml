@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SuperHeros</string>
+    <string name="hero_row_hero_title">Hero Title</string>
+    <string name="hero_row_no_abilities">No Abilities</string>
 </resources>
