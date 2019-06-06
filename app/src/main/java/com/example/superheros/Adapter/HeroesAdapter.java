@@ -44,13 +44,12 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
     public void onBindViewHolder(@NonNull final HeroesViewHolder holder, int position) {
 
         final Hero currentHero = heroList.get(position);
-        String str = String.join(",", currentHero.abilities);
+        String str = String.join(", ", currentHero.abilities);
 
         holder.heroTitle.setText(currentHero.title);
         holder.heroAbilities.setText(str);
         Picasso.get()
                 .load(currentHero.image)
-                //.resize(250, 250)
                 .error(R.drawable.ic_launcher_foreground)
                 .into(holder.heroesImage, new Callback() {
                     @Override

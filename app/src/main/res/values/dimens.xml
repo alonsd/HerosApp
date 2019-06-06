@@ -6,4 +6,5 @@
     <dimen name="hero_row_abilities_text">18sp</dimen>
     <dimen name="hero_row_heart_size">30dp</dimen>
     <dimen name="activity_main_collapsingToolbar_height">180dp</dimen>
+    <dimen name="hero_row_height">150dp</dimen>
 </resources>
