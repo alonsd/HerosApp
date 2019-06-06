@@ -50,8 +50,7 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroesView
         holder.heroAbilities.setText(str);
         Picasso.get()
                 .load(currentHero.image)
-                .resize(250, 250)
-                //.placeholder(R.drawable.ic_launcher_background)
+                //.resize(250, 250)
                 .error(R.drawable.ic_launcher_foreground)
                 .into(holder.heroesImage, new Callback() {
                     @Override
